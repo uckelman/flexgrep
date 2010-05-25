@@ -1,0 +1,6 @@
+fuck[a-zA-Z]*
+wicked
+[\t\n ^]ale[\t\n $]
+[0-9]{3}[ -][0-9]{3}[ -][0-9]{4}
+bomb[a-zA-Z]*
+<html>(.|\n)*</html>
