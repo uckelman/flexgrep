@@ -3,20 +3,10 @@
 # definitions
 print <<EOF;
 %{
-#include <cstdlib>
-#include <iostream>
-using namespace std;
-
-void yyerror(char *err);
-
 int pos = 0;
 %}
 
-%option 8bit
-%option main
-%option nodefault
-%option nounput
-%option warn
+%option 8bit main nodefault nounput warn
 %%
 EOF
 
@@ -32,10 +22,4 @@ EOF
 print <<EOF;
 .|\\n  ++pos; /* eat unmatched chars */
 %%
-
-void yyerror(char *err)
-{
-   cerr << err << endl;
-   exit(1);
-}
 EOF

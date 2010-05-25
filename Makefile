@@ -1,5 +1,5 @@
 CPPFLAGS=-Wall -W -O3
-LDFLAGS=-lstdc++
+LDFLAGS=
 #LFLAGS=-dbBppvCfa
 LFLAGS=-bBppvCfa
 CC=g++
