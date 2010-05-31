@@ -6,7 +6,7 @@ print <<EOF;
 int pos = 0;
 %}
 
-%option 8bit main nodefault nounput warn
+%option 8bit main nodefault nounput noyylineno warn
 %%
 EOF
 

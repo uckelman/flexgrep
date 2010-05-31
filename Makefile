@@ -1,7 +1,7 @@
 CPPFLAGS=-Wall -W -O3
 LDFLAGS=
 #LFLAGS=-dbBppvCfa
-LFLAGS=-bBppvCfa
+LFLAGS=-bBppvCFa
 CC=g++
 
 lexer: lex.yy.o 
