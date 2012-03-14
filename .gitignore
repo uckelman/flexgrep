@@ -1,0 +1,6 @@
+lex.backup
+lexer
+lexer.l
+lex.yy.c
+*.o
+.*.swp
