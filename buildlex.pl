@@ -8,16 +8,6 @@ print <<EOF;
 
 %option 8bit main nodefault nounput noyylineno warn
 
-EOF
-
-# everything to the first blank line is a user-provided definition
-while (<ARGV>) {
-  chomp;
-  last unless $_;
-  print "$_\n";
-}
-print <<EOF;
-
 %%
 EOF
 

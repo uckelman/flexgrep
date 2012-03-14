@@ -1,6 +1,4 @@
-1. Put definitions and paterns into a file named 'patterns'. All of the
-definitions must be first, followed by a blank line, followed by all of the
-patterns.
+1. Put paterns into a file named 'patterns', one per line.
 
 2. make
 
