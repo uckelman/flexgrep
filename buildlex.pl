@@ -3,10 +3,21 @@
 # definitions
 print <<EOF;
 %{
-int pos = 0;
+  int pos = 0;
 %}
 
 %option 8bit main nodefault nounput noyylineno warn
+
+EOF
+
+# everything to the first blank line is a user-provided definition
+while (<ARGV>) {
+  chomp;
+  last unless $_;
+  print "$_\n";
+}
+print <<EOF;
+
 %%
 EOF
 
@@ -18,7 +29,7 @@ $_  printf("@{[$.-1]}@[%d,%d): %s\\n", pos, pos + yyleng, yytext); pos += yyleng
 EOF
 }
 
-# catchall rules + user code
+# catchall rule
 print <<EOF;
 .|\\n  ++pos; /* eat unmatched chars */
 %%
