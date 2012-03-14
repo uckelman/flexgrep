@@ -1,19 +1,24 @@
-CPPFLAGS=-Wall -W -O3
-LDFLAGS=
-#LFLAGS=-dbBppvCfa
-LFLAGS=-bBppvCFa
-CC=g++
+CC := gcc
+CFLAGS := -pedantic -Wall -Wextra -Wno-unused-function -pipe -O3
+#CPPFLAGS :=
+#LDFLAGS :=
 
-lexer: lex.yy.o 
-	$(CC) $(LDFLAGS) -o $@ $^
+LEX := flex
+#LFLAGS := -bBppvCFra
+LFLAGS := -BCra
 
-lex.yy.c: lexer.l
-	$(LEX) $(LFLAGS) $<
+.l.c:
+	$(LEX) $(LFLAGS) -o $@ $<
+
+lexer: lexer.o
 
 lexer.l: patterns
-	./buildlex.pl $< >$@
+	perl -w buildlex.pl $< >$@
+
+# prevent deletion of intermediate file lexer.c
+.SECONDARY: lexer.c
 
 .PHONY: clean
 
 clean:
-	-rm *.o lex.yy.c lex.backup lexer lexer.l
+	$(RM) *.o lexer.c lex.backup lexer lexer.l
