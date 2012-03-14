@@ -1,0 +1,7 @@
+1. Put definitions and paterns into a file named 'patterns'. All of the
+definitions must be first, followed by a blank line, followed by all of the
+patterns.
+
+2. make
+
+3. ./flexgrep some_file_to_search
