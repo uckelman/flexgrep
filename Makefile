@@ -1,13 +1,13 @@
-CC := gcc
-CFLAGS := -pedantic -Wall -Wextra -Wno-unused-function -pipe -O3
+CC := g++
+CXXFLAGS := -std=c++0x -pedantic -Wall -Wextra -pipe -O3
 #CPPFLAGS :=
 #LDFLAGS :=
 
 LEX := flex
 #LFLAGS := -bBppvCFra
-LFLAGS := -BCra
+LFLAGS := -BppvCra
 
-.l.c:
+.l.cpp:
 	$(LEX) $(LFLAGS) -o $@ $<
 
 lexer: lexer.o
@@ -15,10 +15,10 @@ lexer: lexer.o
 lexer.l: patterns
 	perl -w buildlex.pl $< >$@
 
-# prevent deletion of intermediate file lexer.c
-.SECONDARY: lexer.c
+# prevent deletion of intermediate file lexer.cpp
+.SECONDARY: lexer.cpp
 
 .PHONY: clean
 
 clean:
-	$(RM) *.o lexer.c lex.backup lexer lexer.l
+	$(RM) *.o lexer.cpp lex.backup lexer lexer.l
