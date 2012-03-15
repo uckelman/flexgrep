@@ -11,6 +11,10 @@ LFLAGS := -BppvCra
 	$(LEX) $(LFLAGS) -o $@ $<
 
 lexer: lexer.o
+	$(CC) -o $@ $(LDFLAGS) $< $(LDLIBS)
+
+lexer.o: lexer.cpp
+	$(CXX) -c $(CPPFLAGS) $(CXXFLAGS) -o $@ $<
 
 lexer.l: patterns
 	perl -w buildlex.pl $< >$@
